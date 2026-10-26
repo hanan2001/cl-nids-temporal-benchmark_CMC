@@ -1,0 +1,25 @@
+# Raw dataset (CIC-IDS2017 CSV files, ~840 MB): download it separately, see README
+data/CIC-IDS2017/
+
+# Python
+__pycache__/
+*.py[cod]
+*.tmp
+
+# Outputs of the earlier RGGP/GPM pipeline (not used in the paper)
+results/models/
+results/figures/
+results/per_class/
+results/paper_results.json
+results/ablation_cic-ids2017_small.json
+results/comparison_cic-ids2017_small.json
+
+# Incomplete run (not reported in the paper)
+results/abl_q2000.json
+
+# Local logs, scratch folders and manuscripts
+logs.txt
+test_buffer/
+*.docx
+*.pdf
+~$*
