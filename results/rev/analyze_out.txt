@@ -1,0 +1,60 @@
+
+REPRODUCIBILITY {'submitted_mcc': 0.9267081667106539, 'rerun_mcc': 0.9267081667106539, 'identical_R': True, 'identical_per_class': True}
+
+=== Revised main protocol (timestamp order), 5 seeds
+method                        mcc    anced_accuracy          f1_macro    detection_rate    _positive_rate        forgetting    detection_rate    detection_rate  seeds
+Majority            0.000+/-0.000     0.067+/-0.000     0.059+/-0.000     0.000+/-0.000     0.000+/-0.000                 -     0.000+/-0.000                 -  1
+FineTuning          0.461+/-0.002     0.133+/-0.000     0.118+/-0.003     0.315+/-0.035     0.000+/-0.000     0.410+/-0.008     0.087+/-0.007     0.099+/-0.017  3
+EWC                 0.466+/-0.005     0.133+/-0.000     0.111+/-0.002     0.394+/-0.036     0.001+/-0.000     0.406+/-0.001     0.152+/-0.013     0.149+/-0.009  3
+ReplayUniform       0.944+/-0.020     0.800+/-0.017     0.615+/-0.003     0.973+/-0.023     0.007+/-0.001    -0.000+/-0.012     0.898+/-0.005     0.865+/-0.008  2
+ReplayRisk          0.944+/-0.002     0.788+/-0.004     0.634+/-0.006     0.968+/-0.001     0.010+/-0.000     0.017+/-0.009     0.892+/-0.017     0.857+/-0.001  2
+Joint               0.967+/-0.006     0.795+/-0.001     0.630+/-0.027     0.968+/-0.007     0.003+/-0.001                 -     0.868+/-0.007     0.840+/-0.019  3
+
+=== Replay pair, all seeds
+method                        mcc    anced_accuracy          f1_macro    detection_rate    _positive_rate        forgetting    detection_rate    detection_rate  seeds
+ReplayUniform       0.944+/-0.020     0.800+/-0.017     0.615+/-0.003     0.973+/-0.023     0.007+/-0.001    -0.000+/-0.012     0.898+/-0.005     0.865+/-0.008  2
+ReplayRisk          0.944+/-0.002     0.788+/-0.004     0.634+/-0.006     0.968+/-0.001     0.010+/-0.000     0.017+/-0.009     0.892+/-0.017     0.857+/-0.001  2
+
+--- Planned comparisons on MCC (revised main)
+   ReplayRisk - ReplayUniform               n=2   diff=-0.0007 CI95=[-0.1601,+0.1588] p=0.9669 p_holm=0.9669 TOST(+/-0.02) p=0.1832
+   ReplayUniform - EWC                      n=2   diff=+0.4767 CI95=[+0.2445,+0.7088] p=0.0244 p_holm=0.0732 TOST(+/-0.02) p=0.9873
+   ReplayUniform - FineTuning               n=2   diff=+0.4828 CI95=[+0.3245,+0.6410] p=0.0164 p_holm=0.0657 TOST(+/-0.02) p=0.9914
+   EWC - FineTuning                         n=3   diff=+0.0054 CI95=[-0.0093,+0.0202] p=0.2531 p_holm=0.5063 TOST(+/-0.02) p=0.0255
+
+--- Severity-sensitive outcomes, ReplayRisk - ReplayUniform
+   sw_detection_rate                        n=2   diff=-0.0057 CI95=[-0.1159,+0.1044] p=0.6280 TOST(+/-0.02) p=0.1738
+   sw_missed_attack_rate                    n=2   diff=+0.0059 CI95=[-0.2126,+0.2243] p=0.7903 TOST(+/-0.02) p=0.2811
+   fixed.sw_detection_rate                  n=2   diff=-0.0083 CI95=[-0.0858,+0.0692] p=0.4046 TOST(+/-0.02) p=0.1527
+   fixed.detection_rate                     n=2   diff=-0.0034 CI95=[-0.0879,+0.0810] p=0.6961 TOST(+/-0.02) p=0.1214
+   detection_rate                           n=2   diff=-0.0051 CI95=[-0.1966,+0.1864] p=0.7927 TOST(+/-0.02) p=0.2517
+   false_positive_rate                      n=2   diff=+0.0033 CI95=[-0.0048,+0.0114] p=0.1230 TOST(+/-0.02) p=0.0121
+
+=== Resources
+   FineTuning     {'memory_bytes': {'mean': 0.0, 'sd': 0.0, 'n': 3}, 'total_minutes': {'mean': 145.40331407722223, 'sd': 45.084846926835446, 'n': 3}, 'ms_per_update': {'mean': 100.62701741160267, 'sd': 50.60610218839828, 'n': 3}, 'updates': {'mean': 125679.66666666667, 'sd': 5121.628094008129, 'n': 3}, 'buffer_flows': {'mean': 0.0, 'sd': 0.0, 'n': 3}, 'n_params': 206607}
+   EWC            {'memory_bytes': {'mean': 13222848.0, 'sd': 0.0, 'n': 3}, 'total_minutes': {'mean': 171.16078182166666, 'sd': 83.48378067535164, 'n': 3}, 'ms_per_update': {'mean': 75.91506034742031, 'sd': 25.47352006956173, 'n': 3}, 'updates': {'mean': 131958.66666666666, 'sd': 9196.704645324506, 'n': 3}, 'buffer_flows': {'mean': 0.0, 'sd': 0.0, 'n': 3}, 'n_params': 206607}
+   ReplayUniform  {'memory_bytes': {'mean': 1898560.0, 'sd': 0.0, 'n': 2}, 'total_minutes': {'mean': 381.0904500708333, 'sd': 120.71959720038392, 'n': 2}, 'ms_per_update': {'mean': 129.86883098356378, 'sd': 22.828115109340388, 'n': 2}, 'updates': {'mean': 155747.0, 'sd': 9517.657274770929, 'n': 2}, 'buffer_flows': {'mean': 5933.0, 'sd': 0.0, 'n': 2}, 'n_params': 206607}
+   ReplayRisk     {'memory_bytes': {'mean': 3012160.0, 'sd': 0.0, 'n': 2}, 'total_minutes': {'mean': 335.7648862616667, 'sd': 63.00406643002728, 'n': 2}, 'ms_per_update': {'mean': 116.21856652796137, 'sd': 26.130643709570347, 'n': 2}, 'updates': {'mean': 161479.0, 'sd': 5369.768896330642, 'n': 2}, 'buffer_flows': {'mean': 9413.0, 'sd': 0.0, 'n': 2}, 'n_params': 206607}
+   Joint          {'memory_bytes': {'mean': 0.0, 'sd': 0.0, 'n': 3}, 'total_minutes': {'mean': 68.13819387666665, 'sd': 14.874465289886626, 'n': 3}, 'ms_per_update': {'mean': 49.28357691661419, 'sd': 13.572460204578716, 'n': 3}, 'updates': {'mean': 83954.66666666667, 'sd': 22065.69938464071, 'n': 3}, 'buffer_flows': None, 'n_params': 206607}
+
+--- Severity decomposition vs uniform replay (MCC)
+
+--- Severity decomposition vs uniform replay (SW-DR)
+
+=== Table 7 (file-order protocol, supplementary configuration)
+   aim_uniform   ReplayRisk     MCC 0.938+/-0.013  vs ref: -
+   aim_inverted  ReplayRisk     MCC 0.944+/-0.005  vs ref: -
+   aim_permuted  ReplayRisk     MCC 0.944+/-0.017  vs ref: -
+   lam025        ReplayUniform  MCC 0.942+/-0.015  vs ref: -
+   lam025        ReplayRisk     MCC 0.953+/-0.020  vs ref: -
+   lam1          ReplayUniform  MCC 0.942+/-0.006  vs ref: -
+   lam1          ReplayRisk     MCC 0.941+/-0.014  vs ref: -
+   q100          ReplayUniform  MCC 0.920+/-0.014  vs ref: -
+   q100          ReplayRisk     MCC 0.931+/-0.028  vs ref: -
+   P1            ReplayUniform  MCC 0.513+/-0.099  vs ref: -
+   P2            ReplayUniform  MCC 0.730+/-0.014  vs ref: -
+   P3            ReplayUniform  MCC 0.854+/-0.015  vs ref: -
+   P4            ReplayUniform  MCC 0.905+/-0.012  vs ref: -
+
+=== EWC diagnostics
+
+written results/rev/summary.json

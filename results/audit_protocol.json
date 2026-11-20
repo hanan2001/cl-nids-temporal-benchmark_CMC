@@ -1,0 +1,1634 @@
+{
+ "files": [
+  {
+   "task": "Monday-WorkingHours",
+   "n": 529481,
+   "start": "08:55:58",
+   "end": "17:01:34",
+   "adjacent_decreases": 208741,
+   "rows_more_than_1min_out_of_order": 338161,
+   "frac_out_of_order": 0.6386650323618789,
+   "spearman_file_vs_time": 0.45332207008868836,
+   "overlaps_previous_file": false
+  },
+  {
+   "task": "Tuesday-WorkingHours",
+   "n": 445645,
+   "start": "08:53:00",
+   "end": "17:00:00",
+   "adjacent_decreases": 159376,
+   "rows_more_than_1min_out_of_order": 366559,
+   "frac_out_of_order": 0.8225358749677434,
+   "spearman_file_vs_time": 0.43972583889138483,
+   "overlaps_previous_file": false
+  },
+  {
+   "task": "Wednesday-workingHours",
+   "n": 691406,
+   "start": "08:42:00",
+   "end": "17:10:00",
+   "adjacent_decreases": 163845,
+   "rows_more_than_1min_out_of_order": 631145,
+   "frac_out_of_order": 0.9128428159431651,
+   "spearman_file_vs_time": 0.6484808460150533,
+   "overlaps_previous_file": false
+  },
+  {
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "n": 170231,
+   "start": "08:59:00",
+   "end": "12:59:00",
+   "adjacent_decreases": 0,
+   "rows_more_than_1min_out_of_order": 0,
+   "frac_out_of_order": 0.0,
+   "spearman_file_vs_time": 1.0,
+   "overlaps_previous_file": false
+  },
+  {
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "n": 288395,
+   "start": "13:00:00",
+   "end": "17:04:00",
+   "adjacent_decreases": 0,
+   "rows_more_than_1min_out_of_order": 0,
+   "frac_out_of_order": 0.0,
+   "spearman_file_vs_time": 1.0,
+   "overlaps_previous_file": false
+  },
+  {
+   "task": "Friday-WorkingHours-Morning",
+   "n": 190911,
+   "start": "08:59:00",
+   "end": "12:59:00",
+   "adjacent_decreases": 0,
+   "rows_more_than_1min_out_of_order": 0,
+   "frac_out_of_order": 0.0,
+   "spearman_file_vs_time": 1.0,
+   "overlaps_previous_file": false
+  },
+  {
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "n": 286096,
+   "start": "13:00:00",
+   "end": "15:29:00",
+   "adjacent_decreases": 0,
+   "rows_more_than_1min_out_of_order": 0,
+   "frac_out_of_order": 0.0,
+   "spearman_file_vs_time": 0.9999999999999998,
+   "overlaps_previous_file": false
+  },
+  {
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "n": 225711,
+   "start": "15:30:00",
+   "end": "17:02:00",
+   "adjacent_decreases": 0,
+   "rows_more_than_1min_out_of_order": 0,
+   "frac_out_of_order": 0.0,
+   "spearman_file_vs_time": 1.0,
+   "overlaps_previous_file": false
+  }
+ ],
+ "split_chronology": [
+  {
+   "task": "Monday-WorkingHours",
+   "partitions": {
+    "train": [
+     "08:55:58",
+     "16:37:42"
+    ],
+    "val": [
+     "08:56:38",
+     "17:01:34"
+    ],
+    "test": [
+     "08:56:37",
+     "17:01:34"
+    ]
+   },
+   "per_class": {
+    "BENIGN": {
+     "train": [
+      "08:55:58",
+      "16:37:42"
+     ],
+     "val": [
+      "08:56:38",
+      "17:01:34"
+     ],
+     "test": [
+      "08:56:37",
+      "17:01:34"
+     ],
+     "train_after_first_test": 317675,
+     "train_same_minute_as_test": 317685
+    }
+   },
+   "train_after_first_test_any_class": 317675,
+   "train_after_first_test_any_class_frac": 0.9999559317445678
+  },
+  {
+   "task": "Tuesday-WorkingHours",
+   "partitions": {
+    "train": [
+     "08:53:00",
+     "16:49:00"
+    ],
+    "val": [
+     "08:54:00",
+     "17:00:00"
+    ],
+    "test": [
+     "08:54:00",
+     "17:00:00"
+    ]
+   },
+   "per_class": {
+    "BENIGN": {
+     "train": [
+      "08:53:00",
+      "16:49:00"
+     ],
+     "val": [
+      "08:54:00",
+      "17:00:00"
+     ],
+     "test": [
+      "08:54:00",
+      "17:00:00"
+     ],
+     "train_after_first_test": 259034,
+     "train_same_minute_as_test": 259087
+    },
+    "FTP-Patator": {
+     "train": [
+      "09:43:00",
+      "10:30:00"
+     ],
+     "val": [
+      "09:31:00",
+      "09:43:00"
+     ],
+     "test": [
+      "09:17:00",
+      "09:31:00"
+     ],
+     "train_after_first_test": 4761,
+     "train_same_minute_as_test": 0
+    },
+    "SSH-Patator": {
+     "train": [
+      "14:33:00",
+      "15:11:00"
+     ],
+     "val": [
+      "14:21:00",
+      "14:33:00"
+     ],
+     "test": [
+      "14:09:00",
+      "14:21:00"
+     ],
+     "train_after_first_test": 3538,
+     "train_same_minute_as_test": 0
+    }
+   },
+   "train_after_first_test_any_class": 267333,
+   "train_after_first_test_any_class_frac": 0.9997980455295135
+  },
+  {
+   "task": "Wednesday-workingHours",
+   "partitions": {
+    "train": [
+     "08:42:00",
+     "16:48:00"
+    ],
+    "val": [
+     "08:42:00",
+     "17:10:00"
+    ],
+    "test": [
+     "08:42:00",
+     "17:09:00"
+    ]
+   },
+   "per_class": {
+    "BENIGN": {
+     "train": [
+      "08:42:00",
+      "16:48:00"
+     ],
+     "val": [
+      "08:42:00",
+      "17:10:00"
+     ],
+     "test": [
+      "08:42:00",
+      "17:09:00"
+     ],
+     "train_after_first_test": 263743,
+     "train_same_minute_as_test": 263810
+    },
+    "DoS GoldenEye": {
+     "train": [
+      "11:10:00",
+      "11:17:00"
+     ],
+     "val": [
+      "11:17:00",
+      "11:18:00"
+     ],
+     "test": [
+      "11:18:00",
+      "11:19:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    },
+    "DoS Hulk": {
+     "train": [
+      "10:43:00",
+      "10:53:00"
+     ],
+     "val": [
+      "10:53:00",
+      "10:57:00"
+     ],
+     "test": [
+      "10:57:00",
+      "11:07:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    },
+    "DoS Slowhttptest": {
+     "train": [
+      "10:15:00",
+      "10:26:00"
+     ],
+     "val": [
+      "10:26:00",
+      "10:33:00"
+     ],
+     "test": [
+      "10:33:00",
+      "10:37:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    },
+    "DoS slowloris": {
+     "train": [
+      "09:01:00",
+      "14:25:00"
+     ],
+     "val": [
+      "10:01:00",
+      "10:06:00"
+     ],
+     "test": [
+      "10:06:00",
+      "10:11:00"
+     ],
+     "train_after_first_test": 5,
+     "train_same_minute_as_test": 0
+    },
+    "Heartbleed": {
+     "train": [
+      "15:12:00",
+      "15:24:00"
+     ],
+     "val": [
+      "15:26:00",
+      "15:28:00"
+     ],
+     "test": [
+      "15:30:00",
+      "15:32:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    }
+   },
+   "train_after_first_test_any_class": 414777,
+   "train_after_first_test_any_class_frac": 0.9998384935059926
+  },
+  {
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partitions": {
+    "train": [
+     "08:59:00",
+     "10:53:00"
+    ],
+    "val": [
+     "09:44:00",
+     "11:46:00"
+    ],
+    "test": [
+     "09:52:00",
+     "12:59:00"
+    ]
+   },
+   "per_class": {
+    "BENIGN": {
+     "train": [
+      "08:59:00",
+      "10:53:00"
+     ],
+     "val": [
+      "10:53:00",
+      "11:46:00"
+     ],
+     "test": [
+      "11:46:00",
+      "12:59:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    },
+    "Web Attack - Brute Force": {
+     "train": [
+      "09:15:00",
+      "09:44:00"
+     ],
+     "val": [
+      "09:44:00",
+      "09:52:00"
+     ],
+     "test": [
+      "09:52:00",
+      "10:00:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    },
+    "Web Attack - Sql Injection": {
+     "train": [
+      "10:40:00",
+      "10:41:00"
+     ],
+     "val": [
+      "10:41:00",
+      "10:42:00"
+     ],
+     "test": [
+      "10:42:00",
+      "10:42:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    },
+    "Web Attack - XSS": {
+     "train": [
+      "10:15:00",
+      "10:27:00"
+     ],
+     "val": [
+      "10:27:00",
+      "10:31:00"
+     ],
+     "test": [
+      "10:31:00",
+      "10:35:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    }
+   },
+   "train_after_first_test_any_class": 48705,
+   "train_after_first_test_any_class_frac": 0.47685017476184416
+  },
+  {
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "partitions": {
+    "train": [
+     "13:00:00",
+     "15:26:00"
+    ],
+    "val": [
+     "15:14:00",
+     "15:51:00"
+    ],
+    "test": [
+     "15:31:00",
+     "17:04:00"
+    ]
+   },
+   "per_class": {
+    "BENIGN": {
+     "train": [
+      "13:00:00",
+      "15:26:00"
+     ],
+     "val": [
+      "15:26:00",
+      "15:51:00"
+     ],
+     "test": [
+      "15:51:00",
+      "17:04:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    },
+    "Infiltration": {
+     "train": [
+      "14:19:00",
+      "15:12:00"
+     ],
+     "val": [
+      "15:14:00",
+      "15:28:00"
+     ],
+     "test": [
+      "15:31:00",
+      "15:45:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    }
+   },
+   "train_after_first_test_any_class": 0,
+   "train_after_first_test_any_class_frac": 0.0
+  },
+  {
+   "task": "Friday-WorkingHours-Morning",
+   "partitions": {
+    "train": [
+     "08:59:00",
+     "10:51:00"
+    ],
+    "val": [
+     "10:48:00",
+     "11:30:00"
+    ],
+    "test": [
+     "11:26:00",
+     "12:59:00"
+    ]
+   },
+   "per_class": {
+    "BENIGN": {
+     "train": [
+      "08:59:00",
+      "10:51:00"
+     ],
+     "val": [
+      "10:51:00",
+      "11:30:00"
+     ],
+     "test": [
+      "11:30:00",
+      "12:59:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    },
+    "Bot": {
+     "train": [
+      "09:34:00",
+      "10:48:00"
+     ],
+     "val": [
+      "10:48:00",
+      "11:26:00"
+     ],
+     "test": [
+      "11:26:00",
+      "12:59:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    }
+   },
+   "train_after_first_test_any_class": 0,
+   "train_after_first_test_any_class_frac": 0.0
+  },
+  {
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "partitions": {
+    "train": [
+     "13:00:00",
+     "14:55:00"
+    ],
+    "val": [
+     "14:39:00",
+     "15:07:00"
+    ],
+    "test": [
+     "14:55:00",
+     "15:29:00"
+    ]
+   },
+   "per_class": {
+    "BENIGN": {
+     "train": [
+      "13:00:00",
+      "14:39:00"
+     ],
+     "val": [
+      "14:39:00",
+      "15:07:00"
+     ],
+     "test": [
+      "15:07:00",
+      "15:29:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    },
+    "PortScan": {
+     "train": [
+      "13:05:00",
+      "14:55:00"
+     ],
+     "val": [
+      "14:55:00",
+      "14:55:00"
+     ],
+     "test": [
+      "14:55:00",
+      "15:23:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 1878
+    }
+   },
+   "train_after_first_test_any_class": 0,
+   "train_after_first_test_any_class_frac": 0.0
+  },
+  {
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "partitions": {
+    "train": [
+     "15:30:00",
+     "16:12:00"
+    ],
+    "val": [
+     "16:08:00",
+     "16:29:00"
+    ],
+    "test": [
+     "16:12:00",
+     "17:02:00"
+    ]
+   },
+   "per_class": {
+    "BENIGN": {
+     "train": [
+      "15:30:00",
+      "16:12:00"
+     ],
+     "val": [
+      "16:12:00",
+      "16:29:00"
+     ],
+     "test": [
+      "16:29:00",
+      "17:02:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    },
+    "DDoS": {
+     "train": [
+      "15:56:00",
+      "16:08:00"
+     ],
+     "val": [
+      "16:08:00",
+      "16:12:00"
+     ],
+     "test": [
+      "16:12:00",
+      "16:16:00"
+     ],
+     "train_after_first_test": 0,
+     "train_same_minute_as_test": 0
+    }
+   },
+   "train_after_first_test_any_class": 0,
+   "train_after_first_test_any_class_frac": 0.0
+  }
+ ],
+ "duplicates": [
+  {
+   "definition": "raw",
+   "task": "Monday-WorkingHours",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 105896,
+   "dup_same_task_same_class": 3359,
+   "dup_same_task_any_class": 3359,
+   "dup_any_task_any_class": 3815,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "raw",
+   "task": "Monday-WorkingHours",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 105896,
+   "dup_same_task_same_class": 3447,
+   "dup_same_task_any_class": 3447,
+   "dup_any_task_any_class": 3985,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Tuesday-WorkingHours",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 86362,
+   "dup_same_task_same_class": 1975,
+   "dup_same_task_any_class": 1975,
+   "dup_any_task_any_class": 5917,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Tuesday-WorkingHours",
+   "partition": "val",
+   "class": "FTP-Patator",
+   "n": 1587,
+   "dup_same_task_same_class": 439,
+   "dup_same_task_any_class": 439,
+   "dup_any_task_any_class": 439,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Tuesday-WorkingHours",
+   "partition": "val",
+   "class": "SSH-Patator",
+   "n": 1180,
+   "dup_same_task_same_class": 565,
+   "dup_same_task_any_class": 565,
+   "dup_any_task_any_class": 565,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Tuesday-WorkingHours",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 86363,
+   "dup_same_task_same_class": 1951,
+   "dup_same_task_any_class": 1951,
+   "dup_any_task_any_class": 6212,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Tuesday-WorkingHours",
+   "partition": "test",
+   "class": "FTP-Patator",
+   "n": 1587,
+   "dup_same_task_same_class": 501,
+   "dup_same_task_any_class": 501,
+   "dup_any_task_any_class": 501,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Tuesday-WorkingHours",
+   "partition": "test",
+   "class": "SSH-Patator",
+   "n": 1179,
+   "dup_same_task_same_class": 535,
+   "dup_same_task_any_class": 535,
+   "dup_any_task_any_class": 535,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 87936,
+   "dup_same_task_same_class": 2474,
+   "dup_same_task_any_class": 2475,
+   "dup_any_task_any_class": 8661,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "DoS GoldenEye",
+   "n": 2058,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "DoS Hulk",
+   "n": 46025,
+   "dup_same_task_same_class": 12387,
+   "dup_same_task_any_class": 12396,
+   "dup_any_task_any_class": 12400,
+   "dup_with_other_label": 928
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "DoS Slowhttptest",
+   "n": 1100,
+   "dup_same_task_same_class": 1,
+   "dup_same_task_any_class": 1,
+   "dup_any_task_any_class": 1,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "DoS slowloris",
+   "n": 1159,
+   "dup_same_task_same_class": 113,
+   "dup_same_task_any_class": 113,
+   "dup_any_task_any_class": 113,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "Heartbleed",
+   "n": 2,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 87937,
+   "dup_same_task_same_class": 2492,
+   "dup_same_task_any_class": 2492,
+   "dup_any_task_any_class": 9193,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "DoS GoldenEye",
+   "n": 2059,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "DoS Hulk",
+   "n": 46025,
+   "dup_same_task_same_class": 12490,
+   "dup_same_task_any_class": 12499,
+   "dup_any_task_any_class": 12504,
+   "dup_with_other_label": 854
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "DoS Slowhttptest",
+   "n": 1100,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "DoS slowloris",
+   "n": 1159,
+   "dup_same_task_same_class": 79,
+   "dup_same_task_any_class": 79,
+   "dup_any_task_any_class": 79,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "Heartbleed",
+   "n": 2,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 33610,
+   "dup_same_task_same_class": 1268,
+   "dup_same_task_any_class": 1268,
+   "dup_any_task_any_class": 2793,
+   "dup_with_other_label": 4
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "val",
+   "class": "Web Attack - Brute Force",
+   "n": 302,
+   "dup_same_task_same_class": 10,
+   "dup_same_task_any_class": 10,
+   "dup_any_task_any_class": 10,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "val",
+   "class": "Web Attack - Sql Injection",
+   "n": 4,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "val",
+   "class": "Web Attack - XSS",
+   "n": 131,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 33610,
+   "dup_same_task_same_class": 1285,
+   "dup_same_task_any_class": 1285,
+   "dup_any_task_any_class": 2803,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "test",
+   "class": "Web Attack - Brute Force",
+   "n": 301,
+   "dup_same_task_same_class": 10,
+   "dup_same_task_any_class": 10,
+   "dup_any_task_any_class": 10,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "test",
+   "class": "Web Attack - Sql Injection",
+   "n": 4,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "test",
+   "class": "Web Attack - XSS",
+   "n": 130,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 57672,
+   "dup_same_task_same_class": 13665,
+   "dup_same_task_any_class": 13665,
+   "dup_any_task_any_class": 15124,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "partition": "val",
+   "class": "Infiltration",
+   "n": 7,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 57672,
+   "dup_same_task_same_class": 2527,
+   "dup_same_task_any_class": 2527,
+   "dup_any_task_any_class": 4541,
+   "dup_with_other_label": 29
+  },
+  {
+   "definition": "raw",
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "partition": "test",
+   "class": "Infiltration",
+   "n": 7,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Morning",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 37791,
+   "dup_same_task_same_class": 1132,
+   "dup_same_task_any_class": 1132,
+   "dup_any_task_any_class": 2648,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Morning",
+   "partition": "val",
+   "class": "Bot",
+   "n": 391,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Morning",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 37791,
+   "dup_same_task_same_class": 1661,
+   "dup_same_task_any_class": 1661,
+   "dup_any_task_any_class": 3453,
+   "dup_with_other_label": 4
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Morning",
+   "partition": "test",
+   "class": "Bot",
+   "n": 391,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 25459,
+   "dup_same_task_same_class": 838,
+   "dup_same_task_any_class": 838,
+   "dup_any_task_any_class": 1901,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "partition": "val",
+   "class": "PortScan",
+   "n": 31761,
+   "dup_same_task_same_class": 14716,
+   "dup_same_task_any_class": 14716,
+   "dup_any_task_any_class": 14716,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 25458,
+   "dup_same_task_same_class": 962,
+   "dup_same_task_any_class": 962,
+   "dup_any_task_any_class": 1992,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "partition": "test",
+   "class": "PortScan",
+   "n": 31761,
+   "dup_same_task_same_class": 16708,
+   "dup_same_task_any_class": 16708,
+   "dup_any_task_any_class": 16816,
+   "dup_with_other_label": 288
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 19537,
+   "dup_same_task_same_class": 627,
+   "dup_same_task_any_class": 627,
+   "dup_any_task_any_class": 1454,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "partition": "val",
+   "class": "DDoS",
+   "n": 25605,
+   "dup_same_task_same_class": 1,
+   "dup_same_task_any_class": 1,
+   "dup_any_task_any_class": 1,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 19537,
+   "dup_same_task_same_class": 334,
+   "dup_same_task_any_class": 334,
+   "dup_any_task_any_class": 1698,
+   "dup_with_other_label": 2
+  },
+  {
+   "definition": "raw",
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "partition": "test",
+   "class": "DDoS",
+   "n": 25605,
+   "dup_same_task_same_class": 4,
+   "dup_same_task_any_class": 4,
+   "dup_any_task_any_class": 5,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "pre",
+   "task": "Monday-WorkingHours",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 105896,
+   "dup_same_task_same_class": 3374,
+   "dup_same_task_any_class": 3374,
+   "dup_any_task_any_class": 10663,
+   "dup_with_other_label": 4
+  },
+  {
+   "definition": "pre",
+   "task": "Monday-WorkingHours",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 105896,
+   "dup_same_task_same_class": 3447,
+   "dup_same_task_any_class": 3447,
+   "dup_any_task_any_class": 11650,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Tuesday-WorkingHours",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 86362,
+   "dup_same_task_same_class": 1979,
+   "dup_same_task_any_class": 1979,
+   "dup_any_task_any_class": 6270,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Tuesday-WorkingHours",
+   "partition": "val",
+   "class": "FTP-Patator",
+   "n": 1587,
+   "dup_same_task_same_class": 439,
+   "dup_same_task_any_class": 439,
+   "dup_any_task_any_class": 439,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Tuesday-WorkingHours",
+   "partition": "val",
+   "class": "SSH-Patator",
+   "n": 1180,
+   "dup_same_task_same_class": 565,
+   "dup_same_task_any_class": 565,
+   "dup_any_task_any_class": 565,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Tuesday-WorkingHours",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 86363,
+   "dup_same_task_same_class": 1951,
+   "dup_same_task_any_class": 1951,
+   "dup_any_task_any_class": 6565,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Tuesday-WorkingHours",
+   "partition": "test",
+   "class": "FTP-Patator",
+   "n": 1587,
+   "dup_same_task_same_class": 501,
+   "dup_same_task_any_class": 501,
+   "dup_any_task_any_class": 501,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Tuesday-WorkingHours",
+   "partition": "test",
+   "class": "SSH-Patator",
+   "n": 1179,
+   "dup_same_task_same_class": 535,
+   "dup_same_task_any_class": 535,
+   "dup_any_task_any_class": 535,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 87936,
+   "dup_same_task_same_class": 2474,
+   "dup_same_task_any_class": 2475,
+   "dup_any_task_any_class": 9046,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "DoS GoldenEye",
+   "n": 2058,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "DoS Hulk",
+   "n": 46025,
+   "dup_same_task_same_class": 12387,
+   "dup_same_task_any_class": 12396,
+   "dup_any_task_any_class": 12404,
+   "dup_with_other_label": 941
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "DoS Slowhttptest",
+   "n": 1100,
+   "dup_same_task_same_class": 1,
+   "dup_same_task_any_class": 1,
+   "dup_any_task_any_class": 1,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "DoS slowloris",
+   "n": 1159,
+   "dup_same_task_same_class": 148,
+   "dup_same_task_any_class": 148,
+   "dup_any_task_any_class": 148,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "val",
+   "class": "Heartbleed",
+   "n": 2,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 87937,
+   "dup_same_task_same_class": 2492,
+   "dup_same_task_any_class": 2492,
+   "dup_any_task_any_class": 9627,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "DoS GoldenEye",
+   "n": 2059,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "DoS Hulk",
+   "n": 46025,
+   "dup_same_task_same_class": 12490,
+   "dup_same_task_any_class": 12499,
+   "dup_any_task_any_class": 12508,
+   "dup_with_other_label": 875
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "DoS Slowhttptest",
+   "n": 1100,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 1,
+   "dup_any_task_any_class": 1,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "DoS slowloris",
+   "n": 1159,
+   "dup_same_task_same_class": 81,
+   "dup_same_task_any_class": 81,
+   "dup_any_task_any_class": 81,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Wednesday-workingHours",
+   "partition": "test",
+   "class": "Heartbleed",
+   "n": 2,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 33610,
+   "dup_same_task_same_class": 1268,
+   "dup_same_task_any_class": 1268,
+   "dup_any_task_any_class": 2960,
+   "dup_with_other_label": 4
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "val",
+   "class": "Web Attack - Brute Force",
+   "n": 302,
+   "dup_same_task_same_class": 10,
+   "dup_same_task_any_class": 10,
+   "dup_any_task_any_class": 10,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "val",
+   "class": "Web Attack - Sql Injection",
+   "n": 4,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "val",
+   "class": "Web Attack - XSS",
+   "n": 131,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 33610,
+   "dup_same_task_same_class": 1285,
+   "dup_same_task_any_class": 1285,
+   "dup_any_task_any_class": 2929,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "test",
+   "class": "Web Attack - Brute Force",
+   "n": 301,
+   "dup_same_task_same_class": 10,
+   "dup_same_task_any_class": 10,
+   "dup_any_task_any_class": 10,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "test",
+   "class": "Web Attack - Sql Injection",
+   "n": 4,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "partition": "test",
+   "class": "Web Attack - XSS",
+   "n": 130,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 57672,
+   "dup_same_task_same_class": 13665,
+   "dup_same_task_any_class": 13665,
+   "dup_any_task_any_class": 15262,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "partition": "val",
+   "class": "Infiltration",
+   "n": 7,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 57672,
+   "dup_same_task_same_class": 2527,
+   "dup_same_task_any_class": 2527,
+   "dup_any_task_any_class": 4799,
+   "dup_with_other_label": 29
+  },
+  {
+   "definition": "pre",
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "partition": "test",
+   "class": "Infiltration",
+   "n": 7,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Morning",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 37791,
+   "dup_same_task_same_class": 1132,
+   "dup_same_task_any_class": 1132,
+   "dup_any_task_any_class": 2850,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Morning",
+   "partition": "val",
+   "class": "Bot",
+   "n": 391,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Morning",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 37791,
+   "dup_same_task_same_class": 1661,
+   "dup_same_task_any_class": 1661,
+   "dup_any_task_any_class": 3641,
+   "dup_with_other_label": 4
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Morning",
+   "partition": "test",
+   "class": "Bot",
+   "n": 391,
+   "dup_same_task_same_class": 0,
+   "dup_same_task_any_class": 0,
+   "dup_any_task_any_class": 0,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 25459,
+   "dup_same_task_same_class": 838,
+   "dup_same_task_any_class": 838,
+   "dup_any_task_any_class": 2000,
+   "dup_with_other_label": 1
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "partition": "val",
+   "class": "PortScan",
+   "n": 31761,
+   "dup_same_task_same_class": 14716,
+   "dup_same_task_any_class": 14716,
+   "dup_any_task_any_class": 14716,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 25458,
+   "dup_same_task_same_class": 962,
+   "dup_same_task_any_class": 962,
+   "dup_any_task_any_class": 2115,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "partition": "test",
+   "class": "PortScan",
+   "n": 31761,
+   "dup_same_task_same_class": 16708,
+   "dup_same_task_any_class": 16708,
+   "dup_any_task_any_class": 16816,
+   "dup_with_other_label": 288
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "partition": "val",
+   "class": "BENIGN",
+   "n": 19537,
+   "dup_same_task_same_class": 627,
+   "dup_same_task_any_class": 627,
+   "dup_any_task_any_class": 1507,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "partition": "val",
+   "class": "DDoS",
+   "n": 25605,
+   "dup_same_task_same_class": 1,
+   "dup_same_task_any_class": 1,
+   "dup_any_task_any_class": 1,
+   "dup_with_other_label": 0
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "partition": "test",
+   "class": "BENIGN",
+   "n": 19537,
+   "dup_same_task_same_class": 334,
+   "dup_same_task_any_class": 334,
+   "dup_any_task_any_class": 1786,
+   "dup_with_other_label": 2
+  },
+  {
+   "definition": "pre",
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "partition": "test",
+   "class": "DDoS",
+   "n": 25605,
+   "dup_same_task_same_class": 5,
+   "dup_same_task_any_class": 5,
+   "dup_any_task_any_class": 6,
+   "dup_with_other_label": 1
+  }
+ ],
+ "time_vs_file_split": [
+  {
+   "task": "Monday-WorkingHours",
+   "flows_changing_partition": 265317,
+   "frac": 0.5010888020533315
+  },
+  {
+   "task": "Tuesday-WorkingHours",
+   "flows_changing_partition": 238334,
+   "frac": 0.5348068529883652
+  },
+  {
+   "task": "Wednesday-workingHours",
+   "flows_changing_partition": 230630,
+   "frac": 0.3335666742839952
+  },
+  {
+   "task": "Thursday-WorkingHours-Morning-WebAttacks",
+   "flows_changing_partition": 0,
+   "frac": 0.0
+  },
+  {
+   "task": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "flows_changing_partition": 0,
+   "frac": 0.0
+  },
+  {
+   "task": "Friday-WorkingHours-Morning",
+   "flows_changing_partition": 0,
+   "frac": 0.0
+  },
+  {
+   "task": "Friday-WorkingHours-Afternoon-PortScan",
+   "flows_changing_partition": 0,
+   "frac": 0.0
+  },
+  {
+   "task": "Friday-WorkingHours-Afternoon-DDos",
+   "flows_changing_partition": 0,
+   "frac": 0.0
+  }
+ ],
+ "total_test_dup_raw": {
+  "test": 565574,
+  "test_dup": 64327
+ },
+ "total_test_dup_pre": {
+  "test": 565574,
+  "test_dup": 73570
+ }
+}

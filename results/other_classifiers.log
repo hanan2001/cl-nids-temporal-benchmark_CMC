@@ -1,0 +1,10 @@
+train 1,696,727  test 565,574
+RandomForest           seed 42: MCC=0.9758 bal.acc=0.7237 FPR=0.02% (2008s)
+     BENIGN=1.000  Bot=0.000  DDoS=0.997  DoS GoldenEye=0.997  DoS Hulk=0.935  DoS Slowhttpte=0.875  DoS slowloris=0.638  FTP-Patator=0.996  Heartbleed=0.500  Infiltration=0.714  PortScan=0.991  SSH-Patator=0.961  Web Attack - B=0.724  Web Attack - S=0.250  Web Attack - X=0.277
+HistGradientBoosting   seed 42: MCC=0.9845 bal.acc=0.8242 FPR=0.09% (326s)
+     BENIGN=0.999  Bot=0.000  DDoS=0.999  DoS GoldenEye=0.998  DoS Hulk=0.965  DoS Slowhttpte=0.880  DoS slowloris=0.908  FTP-Patator=0.996  Heartbleed=1.000  Infiltration=0.857  PortScan=0.998  SSH-Patator=0.998  Web Attack - B=0.532  Web Attack - S=0.750  Web Attack - X=0.485
+RandomForest           seed 123: MCC=0.9759 bal.acc=0.7154 FPR=0.02% (1681s)
+     BENIGN=1.000  Bot=0.000  DDoS=0.997  DoS GoldenEye=0.997  DoS Hulk=0.934  DoS Slowhttpte=0.875  DoS slowloris=0.663  FTP-Patator=0.996  Heartbleed=0.500  Infiltration=0.571  PortScan=0.991  SSH-Patator=0.959  Web Attack - B=0.738  Web Attack - S=0.250  Web Attack - X=0.262
+HistGradientBoosting   seed 123: MCC=0.9817 bal.acc=0.8245 FPR=0.16% (204s)
+     BENIGN=0.998  Bot=0.000  DDoS=0.999  DoS GoldenEye=0.997  DoS Hulk=0.961  DoS Slowhttpte=0.877  DoS slowloris=0.907  FTP-Patator=0.996  Heartbleed=1.000  Infiltration=0.857  PortScan=0.997  SSH-Patator=0.997  Web Attack - B=0.478  Web Attack - S=0.750  Web Attack - X=0.554
+written results/other_classifiers.json

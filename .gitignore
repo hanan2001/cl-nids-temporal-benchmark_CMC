@@ -23,3 +23,26 @@ test_buffer/
 *.docx
 *.pdf
 ~$*
+
+# Revision: second dataset, caches and generated documents
+data/CSE-CIC-IDS2018/
+data/cache/
+data/cache2018/
+data/prepared/
+results/rev/logs/
+results/rev/locks/
+results/rev/STOP
+results/rev_queue*.log
+revision/out/
+results/rev/*.log
+
+# Scripts that build the manuscript and the response letters (kept private until the review is over)
+revision/apply_tracked_text.py
+revision/build_letters.py
+revision/build_manuscript.py
+revision/final_texts.py
+revision/trackchanges.py
+revision/citations.py
+revision/docxkit.py
+revision/values.py
+revision/peek_ts.py

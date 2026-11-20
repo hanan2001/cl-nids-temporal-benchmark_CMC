@@ -1,0 +1,961 @@
+{
+ "meta": {
+  "config": {
+   "HIDDEN": [
+    512,
+    256,
+    128
+   ],
+   "DROPOUT": 0.3,
+   "LR": 0.0001,
+   "BATCH": 512,
+   "MAX_EPOCHS": 80,
+   "PATIENCE": 10,
+   "REL_MIN_DELTA": 0.001,
+   "CB_BETA": 0.9999,
+   "FOCAL_GAMMA": 1.0,
+   "CLIP_NORM": 1.0,
+   "ES_CRITERION": "class_avg",
+   "SELECT_CRITERION": "current",
+   "VAL_MEMORY_PER_CLASS": 100,
+   "REPLAY_PER_CLASS": 500,
+   "REPLAY_BATCH_FRAC": 0.5,
+   "REPLAY_LAMBDA": 0.5,
+   "RISK_ON_CAPACITY": true,
+   "RISK_ON_SAMPLING": true,
+   "RISK_ON_LOSS": true,
+   "RISK_BUDGET_MATCHED": false,
+   "AIM_MODE": "table",
+   "AIM_PERMUTE_SEED": 0,
+   "EWC_LAMBDA": 1000.0,
+   "EWC_FISHER_BATCHES": 300,
+   "EWC_FISHER_BS": 32,
+   "EWC_FISHER_MODE": "empirical_batch",
+   "EWC_FISHER_BALANCED": false,
+   "EWC_DIAG": false,
+   "FPR_TARGET": 0.001,
+   "PITFALL_PERSISTENT_OPT": false,
+   "PITFALL_PERSISTENT_ADAM": false,
+   "PITFALL_PERSISTENT_SCHED": false,
+   "PITFALL_CB_LEGACY": false,
+   "PITFALL_REPLAY_CONCAT": false,
+   "DEVICE": "cpu"
+  },
+  "split": "per_class",
+  "max_per_day": null,
+  "class_names": [
+   "BENIGN",
+   "Bot",
+   "DDoS",
+   "DoS GoldenEye",
+   "DoS Hulk",
+   "DoS Slowhttptest",
+   "DoS slowloris",
+   "FTP-Patator",
+   "Heartbleed",
+   "Infiltration",
+   "PortScan",
+   "SSH-Patator",
+   "Web Attack - Brute Force",
+   "Web Attack - Sql Injection",
+   "Web Attack - XSS"
+  ],
+  "order": "time"
+ },
+ "env": {
+  "platform": "Windows-10-10.0.26300-SP0",
+  "python": "3.10.11",
+  "torch": "1.13.0+cpu",
+  "cpu": "Intel64 Family 6 Model 186 Stepping 3, GenuineIntel",
+  "cuda": false,
+  "torch_threads": 2
+ },
+ "counts": [
+  {
+   "train": {
+    "BENIGN": 317689
+   },
+   "val": {
+    "BENIGN": 105896
+   },
+   "test": {
+    "BENIGN": 105896
+   }
+  },
+  {
+   "train": {
+    "BENIGN": 259088,
+    "FTP-Patator": 4761,
+    "SSH-Patator": 3538
+   },
+   "val": {
+    "BENIGN": 86362,
+    "FTP-Patator": 1587,
+    "SSH-Patator": 1180
+   },
+   "test": {
+    "BENIGN": 86363,
+    "FTP-Patator": 1587,
+    "SSH-Patator": 1179
+   }
+  },
+  {
+   "train": {
+    "BENIGN": 263810,
+    "DoS GoldenEye": 6176,
+    "DoS Hulk": 138074,
+    "DoS Slowhttptest": 3299,
+    "DoS slowloris": 3478,
+    "Heartbleed": 7
+   },
+   "val": {
+    "BENIGN": 87936,
+    "DoS GoldenEye": 2058,
+    "DoS Hulk": 46025,
+    "DoS Slowhttptest": 1100,
+    "DoS slowloris": 1159,
+    "Heartbleed": 2
+   },
+   "test": {
+    "BENIGN": 87937,
+    "DoS GoldenEye": 2059,
+    "DoS Hulk": 46025,
+    "DoS Slowhttptest": 1100,
+    "DoS slowloris": 1159,
+    "Heartbleed": 2
+   }
+  },
+  {
+   "train": {
+    "BENIGN": 100831,
+    "Web Attack - Brute Force": 904,
+    "Web Attack - Sql Injection": 13,
+    "Web Attack - XSS": 391
+   },
+   "val": {
+    "BENIGN": 33610,
+    "Web Attack - Brute Force": 302,
+    "Web Attack - Sql Injection": 4,
+    "Web Attack - XSS": 131
+   },
+   "test": {
+    "BENIGN": 33610,
+    "Web Attack - Brute Force": 301,
+    "Web Attack - Sql Injection": 4,
+    "Web Attack - XSS": 130
+   }
+  },
+  {
+   "train": {
+    "BENIGN": 173015,
+    "Infiltration": 22
+   },
+   "val": {
+    "BENIGN": 57672,
+    "Infiltration": 7
+   },
+   "test": {
+    "BENIGN": 57672,
+    "Infiltration": 7
+   }
+  },
+  {
+   "train": {
+    "BENIGN": 113373,
+    "Bot": 1174
+   },
+   "val": {
+    "BENIGN": 37791,
+    "Bot": 391
+   },
+   "test": {
+    "BENIGN": 37791,
+    "Bot": 391
+   }
+  },
+  {
+   "train": {
+    "BENIGN": 76375,
+    "PortScan": 95282
+   },
+   "val": {
+    "BENIGN": 25459,
+    "PortScan": 31761
+   },
+   "test": {
+    "BENIGN": 25458,
+    "PortScan": 31761
+   }
+  },
+  {
+   "train": {
+    "BENIGN": 58612,
+    "DDoS": 76815
+   },
+   "val": {
+    "BENIGN": 19537,
+    "DDoS": 25605
+   },
+   "test": {
+    "BENIGN": 19537,
+    "DDoS": 25605
+   }
+  }
+ ],
+ "protocol_info": [
+  {
+   "name": "Monday-WorkingHours",
+   "removed_duplicates": null,
+   "train": {
+    "start": "08:55:58",
+    "end": "13:14:37",
+    "per_class": {
+     "BENIGN": [
+      "08:55:58",
+      "13:14:37"
+     ]
+    }
+   },
+   "val": {
+    "start": "13:14:37",
+    "end": "15:12:38",
+    "per_class": {
+     "BENIGN": [
+      "13:14:37",
+      "15:12:38"
+     ]
+    }
+   },
+   "test": {
+    "start": "15:12:38",
+    "end": "17:01:34",
+    "per_class": {
+     "BENIGN": [
+      "15:12:38",
+      "17:01:34"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Tuesday-WorkingHours",
+   "removed_duplicates": null,
+   "train": {
+    "start": "08:53:00",
+    "end": "14:46:00",
+    "per_class": {
+     "BENIGN": [
+      "08:53:00",
+      "14:05:00"
+     ],
+     "FTP-Patator": [
+      "09:17:00",
+      "09:56:00"
+     ],
+     "SSH-Patator": [
+      "14:09:00",
+      "14:46:00"
+     ]
+    }
+   },
+   "val": {
+    "start": "09:56:00",
+    "end": "15:23:00",
+    "per_class": {
+     "BENIGN": [
+      "14:05:00",
+      "15:23:00"
+     ],
+     "FTP-Patator": [
+      "09:56:00",
+      "10:08:00"
+     ],
+     "SSH-Patator": [
+      "14:46:00",
+      "14:58:00"
+     ]
+    }
+   },
+   "test": {
+    "start": "10:08:00",
+    "end": "17:00:00",
+    "per_class": {
+     "BENIGN": [
+      "15:23:00",
+      "17:00:00"
+     ],
+     "FTP-Patator": [
+      "10:08:00",
+      "10:30:00"
+     ],
+     "SSH-Patator": [
+      "14:58:00",
+      "15:11:00"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Wednesday-workingHours",
+   "removed_duplicates": null,
+   "train": {
+    "start": "08:42:00",
+    "end": "15:24:00",
+    "per_class": {
+     "BENIGN": [
+      "08:42:00",
+      "14:02:00"
+     ],
+     "DoS GoldenEye": [
+      "11:10:00",
+      "11:17:00"
+     ],
+     "DoS Hulk": [
+      "10:43:00",
+      "10:53:00"
+     ],
+     "DoS Slowhttptest": [
+      "10:15:00",
+      "10:26:00"
+     ],
+     "DoS slowloris": [
+      "09:01:00",
+      "10:01:00"
+     ],
+     "Heartbleed": [
+      "15:12:00",
+      "15:24:00"
+     ]
+    }
+   },
+   "val": {
+    "start": "10:01:00",
+    "end": "15:28:00",
+    "per_class": {
+     "BENIGN": [
+      "14:02:00",
+      "15:16:00"
+     ],
+     "DoS GoldenEye": [
+      "11:17:00",
+      "11:18:00"
+     ],
+     "DoS Hulk": [
+      "10:53:00",
+      "10:57:00"
+     ],
+     "DoS Slowhttptest": [
+      "10:26:00",
+      "10:33:00"
+     ],
+     "DoS slowloris": [
+      "10:01:00",
+      "10:06:00"
+     ],
+     "Heartbleed": [
+      "15:26:00",
+      "15:28:00"
+     ]
+    }
+   },
+   "test": {
+    "start": "10:06:00",
+    "end": "17:10:00",
+    "per_class": {
+     "BENIGN": [
+      "15:16:00",
+      "17:10:00"
+     ],
+     "DoS GoldenEye": [
+      "11:18:00",
+      "11:19:00"
+     ],
+     "DoS Hulk": [
+      "10:57:00",
+      "11:07:00"
+     ],
+     "DoS Slowhttptest": [
+      "10:33:00",
+      "10:37:00"
+     ],
+     "DoS slowloris": [
+      "10:06:00",
+      "14:25:00"
+     ],
+     "Heartbleed": [
+      "15:30:00",
+      "15:32:00"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Thursday-WorkingHours-Morning-WebAttacks",
+   "removed_duplicates": null,
+   "train": {
+    "start": "08:59:00",
+    "end": "10:53:00",
+    "per_class": {
+     "BENIGN": [
+      "08:59:00",
+      "10:53:00"
+     ],
+     "Web Attack - Brute Force": [
+      "09:15:00",
+      "09:44:00"
+     ],
+     "Web Attack - Sql Injection": [
+      "10:40:00",
+      "10:41:00"
+     ],
+     "Web Attack - XSS": [
+      "10:15:00",
+      "10:27:00"
+     ]
+    }
+   },
+   "val": {
+    "start": "09:44:00",
+    "end": "11:46:00",
+    "per_class": {
+     "BENIGN": [
+      "10:53:00",
+      "11:46:00"
+     ],
+     "Web Attack - Brute Force": [
+      "09:44:00",
+      "09:52:00"
+     ],
+     "Web Attack - Sql Injection": [
+      "10:41:00",
+      "10:42:00"
+     ],
+     "Web Attack - XSS": [
+      "10:27:00",
+      "10:31:00"
+     ]
+    }
+   },
+   "test": {
+    "start": "09:52:00",
+    "end": "12:59:00",
+    "per_class": {
+     "BENIGN": [
+      "11:46:00",
+      "12:59:00"
+     ],
+     "Web Attack - Brute Force": [
+      "09:52:00",
+      "10:00:00"
+     ],
+     "Web Attack - Sql Injection": [
+      "10:42:00",
+      "10:42:00"
+     ],
+     "Web Attack - XSS": [
+      "10:31:00",
+      "10:35:00"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Thursday-WorkingHours-Afternoon-Infilteration",
+   "removed_duplicates": null,
+   "train": {
+    "start": "13:00:00",
+    "end": "15:26:00",
+    "per_class": {
+     "BENIGN": [
+      "13:00:00",
+      "15:26:00"
+     ],
+     "Infiltration": [
+      "14:19:00",
+      "15:12:00"
+     ]
+    }
+   },
+   "val": {
+    "start": "15:14:00",
+    "end": "15:51:00",
+    "per_class": {
+     "BENIGN": [
+      "15:26:00",
+      "15:51:00"
+     ],
+     "Infiltration": [
+      "15:14:00",
+      "15:28:00"
+     ]
+    }
+   },
+   "test": {
+    "start": "15:31:00",
+    "end": "17:04:00",
+    "per_class": {
+     "BENIGN": [
+      "15:51:00",
+      "17:04:00"
+     ],
+     "Infiltration": [
+      "15:31:00",
+      "15:45:00"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Friday-WorkingHours-Morning",
+   "removed_duplicates": null,
+   "train": {
+    "start": "08:59:00",
+    "end": "10:51:00",
+    "per_class": {
+     "BENIGN": [
+      "08:59:00",
+      "10:51:00"
+     ],
+     "Bot": [
+      "09:34:00",
+      "10:48:00"
+     ]
+    }
+   },
+   "val": {
+    "start": "10:48:00",
+    "end": "11:30:00",
+    "per_class": {
+     "BENIGN": [
+      "10:51:00",
+      "11:30:00"
+     ],
+     "Bot": [
+      "10:48:00",
+      "11:26:00"
+     ]
+    }
+   },
+   "test": {
+    "start": "11:26:00",
+    "end": "12:59:00",
+    "per_class": {
+     "BENIGN": [
+      "11:30:00",
+      "12:59:00"
+     ],
+     "Bot": [
+      "11:26:00",
+      "12:59:00"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Friday-WorkingHours-Afternoon-PortScan",
+   "removed_duplicates": null,
+   "train": {
+    "start": "13:00:00",
+    "end": "14:55:00",
+    "per_class": {
+     "BENIGN": [
+      "13:00:00",
+      "14:39:00"
+     ],
+     "PortScan": [
+      "13:05:00",
+      "14:55:00"
+     ]
+    }
+   },
+   "val": {
+    "start": "14:39:00",
+    "end": "15:07:00",
+    "per_class": {
+     "BENIGN": [
+      "14:39:00",
+      "15:07:00"
+     ],
+     "PortScan": [
+      "14:55:00",
+      "14:55:00"
+     ]
+    }
+   },
+   "test": {
+    "start": "14:55:00",
+    "end": "15:29:00",
+    "per_class": {
+     "BENIGN": [
+      "15:07:00",
+      "15:29:00"
+     ],
+     "PortScan": [
+      "14:55:00",
+      "15:23:00"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Friday-WorkingHours-Afternoon-DDos",
+   "removed_duplicates": null,
+   "train": {
+    "start": "15:30:00",
+    "end": "16:12:00",
+    "per_class": {
+     "BENIGN": [
+      "15:30:00",
+      "16:12:00"
+     ],
+     "DDoS": [
+      "15:56:00",
+      "16:08:00"
+     ]
+    }
+   },
+   "val": {
+    "start": "16:08:00",
+    "end": "16:29:00",
+    "per_class": {
+     "BENIGN": [
+      "16:12:00",
+      "16:29:00"
+     ],
+     "DDoS": [
+      "16:08:00",
+      "16:12:00"
+     ]
+    }
+   },
+   "test": {
+    "start": "16:12:00",
+    "end": "17:02:00",
+    "per_class": {
+     "BENIGN": [
+      "16:29:00",
+      "17:02:00"
+     ],
+     "DDoS": [
+      "16:12:00",
+      "16:16:00"
+     ]
+    }
+   }
+  }
+ ],
+ "runs": [
+  {
+   "method": "ReplayRisk",
+   "seed": 123,
+   "task_info": [
+    {
+     "epochs": 41,
+     "best_epoch": 31,
+     "train_macro_recall": 1.0,
+     "val_macro_recall": 1.0,
+     "train_seconds": 1340.369480700001,
+     "n_updates": 25461,
+     "seconds_per_update": 0.052644023435843096
+    },
+    {
+     "epochs": 29,
+     "best_epoch": 19,
+     "train_macro_recall": 0.9994098656049122,
+     "val_macro_recall": 0.9989479770933989,
+     "train_seconds": 1155.3990290000002,
+     "n_updates": 15167,
+     "seconds_per_update": 0.07617848150590098
+    },
+    {
+     "epochs": 47,
+     "best_epoch": 37,
+     "train_macro_recall": 0.9966987947281041,
+     "val_macro_recall": 0.9867106864393737,
+     "train_seconds": 6588.709222600002,
+     "n_updates": 38117,
+     "seconds_per_update": 0.1728548737466223
+    },
+    {
+     "epochs": 73,
+     "best_epoch": 63,
+     "train_macro_recall": 0.6982909497403194,
+     "val_macro_recall": 0.5057173449600408,
+     "train_seconds": 1597.889353999999,
+     "n_updates": 14600,
+     "seconds_per_update": 0.10944447630136979
+    },
+    {
+     "epochs": 80,
+     "best_epoch": 79,
+     "train_macro_recall": 0.9962806693061295,
+     "val_macro_recall": 0.9975984880011097,
+     "train_seconds": 2654.852702700002,
+     "n_updates": 27040,
+     "seconds_per_update": 0.09818242243713024
+    },
+    {
+     "epochs": 39,
+     "best_epoch": 29,
+     "train_macro_recall": 0.9818380933142986,
+     "val_macro_recall": 0.853837985349629,
+     "train_seconds": 796.8746232000012,
+     "n_updates": 8736,
+     "seconds_per_update": 0.09121733324175839
+    },
+    {
+     "epochs": 80,
+     "best_epoch": 78,
+     "train_macro_recall": 0.9964568634252409,
+     "val_macro_recall": 0.9975843513099494,
+     "train_seconds": 2372.2326581000016,
+     "n_updates": 26880,
+     "seconds_per_update": 0.08825270305431554
+    },
+    {
+     "epochs": 35,
+     "best_epoch": 25,
+     "train_macro_recall": 0.9977218648722304,
+     "val_macro_recall": 0.9957577157435602,
+     "train_seconds": 864.0309485999969,
+     "n_updates": 9275,
+     "seconds_per_update": 0.09315697559029616
+    }
+   ],
+   "metrics": {
+    "accuracy": 0.9800662689586155,
+    "balanced_accuracy": 0.7905775826536426,
+    "f1_macro": 0.6298942811654782,
+    "f1_weighted": 0.9824377793115369,
+    "mcc": 0.9423957770003042,
+    "detection_rate": 0.9673434552151648,
+    "false_positive_rate": 0.010630382332740433,
+    "false_positive_flows": 4829,
+    "per_class": {
+     "BENIGN": {
+      "recall": 0.9893696176672596,
+      "detected": 0.010630382332740433,
+      "support": 454264
+     },
+     "Bot": {
+      "recall": 0.0,
+      "detected": 0.0,
+      "support": 391
+     },
+     "DDoS": {
+      "recall": 0.9982815856278071,
+      "detected": 0.9982815856278071,
+      "support": 25605
+     },
+     "DoS GoldenEye": {
+      "recall": 0.9970859640602234,
+      "detected": 1.0,
+      "support": 2059
+     },
+     "DoS Hulk": {
+      "recall": 0.8895817490494297,
+      "detected": 0.9326887561108094,
+      "support": 46025
+     },
+     "DoS Slowhttptest": {
+      "recall": 0.97,
+      "detected": 0.9745454545454545,
+      "support": 1100
+     },
+     "DoS slowloris": {
+      "recall": 0.5867126833477135,
+      "detected": 0.9956859361518551,
+      "support": 1159
+     },
+     "FTP-Patator": {
+      "recall": 0.9955891619407687,
+      "detected": 1.0,
+      "support": 1587
+     },
+     "Heartbleed": {
+      "recall": 1.0,
+      "detected": 1.0,
+      "support": 2
+     },
+     "Infiltration": {
+      "recall": 1.0,
+      "detected": 1.0,
+      "support": 7
+     },
+     "PortScan": {
+      "recall": 0.9949938603948238,
+      "detected": 0.9985516828815214,
+      "support": 31761
+     },
+     "SSH-Patator": {
+      "recall": 0.9584393553859203,
+      "detected": 0.981340118744699,
+      "support": 1179
+     },
+     "Web Attack - Brute Force": {
+      "recall": 0.6478405315614618,
+      "detected": 1.0,
+      "support": 301
+     },
+     "Web Attack - Sql Injection": {
+      "recall": 0.5,
+      "detected": 1.0,
+      "support": 4
+     },
+     "Web Attack - XSS": {
+      "recall": 0.33076923076923076,
+      "detected": 0.9923076923076923,
+      "support": 130
+     }
+    },
+    "sw_detection_rate": 0.9044507235108713,
+    "sw_missed_attack_rate": 0.03712990184786476,
+    "missed_attack_flows": 3635,
+    "at_fixed_fpr": {
+     "threshold": 0.9892700741291061,
+     "test_fpr": 0.0007682757163235476,
+     "detection_rate": 0.8831192166022819,
+     "sw_detection_rate": 0.8564061607939226,
+     "macro_detection_rate": 0.8805551392284193
+    }
+   },
+   "R_macro_recall": [
+    [
+     1.0
+    ],
+    [
+     0.9992634282692453,
+     0.987833437793697
+    ],
+    [
+     0.9936447080154114,
+     0.9846935655439172,
+     0.9299595431572446
+    ],
+    [
+     0.9921432348719499,
+     0.9845440071304784,
+     0.9127251287636707,
+     0.5606556834978089
+    ],
+    [
+     0.9911139230943568,
+     0.9790400741894265,
+     0.9111036313562089,
+     0.615731010684409,
+     0.9232308820323801
+    ],
+    [
+     0.9683746317141346,
+     0.980884031052819,
+     0.8973332062022187,
+     0.641033652729369,
+     0.9818976279650438,
+     0.48418935725437273
+    ],
+    [
+     0.9933614111958903,
+     0.9829258004834007,
+     0.8895061976422602,
+     0.6327694789520935,
+     0.9945640865584686,
+     0.4959249556772777,
+     0.9962152606712209
+    ],
+    [
+     0.9891686182669789,
+     0.9835298482061564,
+     0.9055982160017426,
+     0.6152489892289094,
+     0.9915470245526425,
+     0.49333174565372706,
+     0.9933332095594984,
+     0.9929730086095734
+    ]
+   ],
+   "R_accuracy": [
+    [
+     1.0
+    ],
+    [
+     0.9992634282692453,
+     0.9988219322554949
+    ],
+    [
+     0.9936447080154114,
+     0.9945584489896666,
+     0.9879232293429369
+    ],
+    [
+     0.9921432348719499,
+     0.9933130630883327,
+     0.9711459192085737,
+     0.9835511822587751
+    ],
+    [
+     0.9911139230943568,
+     0.983798763589853,
+     0.9678266151776804,
+     0.9846967249228962,
+     0.9893028658610586
+    ],
+    [
+     0.9683746317141346,
+     0.989969594632499,
+     0.9314372080241825,
+     0.958261124981642,
+     0.963799649785884,
+     0.9584621025614164
+    ],
+    [
+     0.9933614111958903,
+     0.9959048121262439,
+     0.9237644812773896,
+     0.9798795711558231,
+     0.9891294925362784,
+     0.9816929443193128,
+     0.9963997972701375
+    ],
+    [
+     0.9891686182669789,
+     0.9960394484399017,
+     0.9532766375956379,
+     0.9768835364958144,
+     0.9830961008339257,
+     0.9765596354303074,
+     0.9935161397437914,
+     0.9936865889858668
+    ]
+   ],
+   "forgetting_macro_recall": 0.010539040731088927,
+   "forgetting_accuracy": 0.010042482452211352,
+   "avg_final_macro_recall": 0.8705913325099035,
+   "buffer_sizes": {
+    "BENIGN": 525,
+    "FTP-Patator": 790,
+    "SSH-Patator": 790,
+    "DoS GoldenEye": 900,
+    "DoS Hulk": 900,
+    "DoS Slowhttptest": 875,
+    "DoS slowloris": 875,
+    "Heartbleed": 7,
+    "Web Attack - Brute Force": 790,
+    "Web Attack - Sql Injection": 13,
+    "Web Attack - XSS": 391,
+    "Infiltration": 22,
+    "Bot": 910,
+    "PortScan": 790,
+    "DDoS": 835
+   },
+   "resources": {
+    "n_params": 206607,
+    "memory_bytes": 3012160,
+    "buffer_flows": 9413,
+    "total_seconds": 17472.8570188,
+    "total_updates": 165276
+   }
+  }
+ ],
+ "started": "2026-11-13T16:07:21.627028",
+ "updated": "2026-11-13T20:58:34.482865"
+}

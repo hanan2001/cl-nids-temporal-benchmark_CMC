@@ -28,7 +28,7 @@ import torch
 from scipy import stats
 
 from data.generator import create_tasks_temporal
-from cl_methods import CLConfig, run_method, final_metrics
+from cl_methods import CLConfig, run_method, final_metrics, benign_index
 
 ALL_METHODS = ['Majority', 'FineTuning', 'EWC', 'ReplayUniform', 'ReplayRisk', 'Joint']
 SUMMARY_KEYS = ['accuracy', 'balanced_accuracy', 'f1_macro', 'f1_weighted', 'mcc',
@@ -41,7 +41,7 @@ PRIMARY = 'mcc'
 def env_info():
     info = {'platform': platform.platform(), 'python': platform.python_version(),
             'torch': torch.__version__, 'cpu': platform.processor(),
-            'cuda': torch.cuda.is_available()}
+            'cuda': torch.cuda.is_available(), 'torch_threads': torch.get_num_threads()}
     if torch.cuda.is_available():
         info['gpu'] = torch.cuda.get_device_name(0)
     return info
@@ -88,17 +88,17 @@ def summarize(out):
     runs = out['runs']
     methods = [m for m in ALL_METHODS if any(r['method'] == m for r in runs)]
     print("\n" + "=" * 100)
-    print("TABLE IV (moyenne ± écart-type sur les seeds)")
+    print("TABLE IV (moyenne +/- écart-type sur les seeds)")
     print(f"{'Méthode':<15}" + "".join(f"{k[:12]:>14}" for k in SUMMARY_KEYS)
           + f"{'Forget(MR)':>14}")
     for m in methods:
         row = f"{m:<15}"
         for k in SUMMARY_KEYS:
             v = list(metric_by_seed(runs, m, k).values())
-            row += f"{np.mean(v):>8.3f}±{np.std(v, ddof=1) if len(v) > 1 else 0:.3f}" if v else f"{'—':>14}"
+            row += f"{np.mean(v):>8.3f}+/-{np.std(v, ddof=1) if len(v) > 1 else 0:.3f}" if v else f"{'—':>14}"
         f = [r['forgetting_macro_recall'] for r in runs
              if r['method'] == m and r.get('forgetting_macro_recall') is not None]
-        row += f"{np.mean(f):>8.3f}±{np.std(f, ddof=1) if len(f) > 1 else 0:.3f}" if f else f"{'N/A':>14}"
+        row += f"{np.mean(f):>8.3f}+/-{np.std(f, ddof=1) if len(f) > 1 else 0:.3f}" if f else f"{'N/A':>14}"
         print(row)
 
     print(f"\nTests appariés sur {PRIMARY.upper()} (t de Student apparié, correction de Holm)")
@@ -110,14 +110,14 @@ def summarize(out):
             continue
         d = np.array([da[s] - db[s] for s in seeds])
         if np.allclose(d, 0):
-            print(f"   ⚠️ {a} et {b} donnent des résultats IDENTIQUES : vérifier les flags")
+            print(f"   WARNING {a} et {b} donnent des résultats IDENTIQUES : vérifier les flags")
             continue
         t, p = stats.ttest_rel([da[s] for s in seeds], [db[s] for s in seeds])
         half = stats.t.ppf(0.975, len(d) - 1) * d.std(ddof=1) / np.sqrt(len(d))
         res.append((a, b, d.mean(), half, len(d))); pv.append(p)
     if pv:
         for (a, b, md, half, n), p, pa in zip(res, pv, holm(np.array(pv))):
-            print(f"   {a:>13} − {b:<13} Δ={md:+.4f}  IC95=[{md-half:+.4f}, {md+half:+.4f}]  "
+            print(f"   {a:>13} - {b:<13} delta={md:+.4f}  IC95=[{md-half:+.4f}, {md+half:+.4f}]  "
                   f"n={n}  p={p:.4f}  p_Holm={pa:.4f}")
 
     print("\nRappel par classe (moyenne sur les seeds) — nouvelle table du papier")
@@ -139,23 +139,33 @@ def main():
     ap.add_argument('--data', default='./data/CIC-IDS2017/MachineLearningCSV/')
     ap.add_argument('--seeds', type=int, nargs='+', default=[42, 123, 456, 789, 1011])
     ap.add_argument('--methods', nargs='+', default=ALL_METHODS)
-    ap.add_argument('--split', default='per_class', choices=['per_class', 'rows'])
+    ap.add_argument('--dataset', default='cic2017', choices=['cic2017', 'cic2018'])
+    ap.add_argument('--split', default='per_class', choices=['per_class', 'rows', 'time_cut'])
+    ap.add_argument('--order', default='file', choices=['file', 'time'],
+                    help="row order within a day: file order (main) or timestamp order")
+    ap.add_argument('--dedup', default=None, choices=['eval'],
+                    help="remove val/test flows whose raw feature vector occurs in any training partition")
     ap.add_argument('--max-per-day', type=int, default=None)
     ap.add_argument('--out', default='results/main.json')
     ap.add_argument('--set', nargs='*', help='surcharges CLConfig, ex. REPLAY_LAMBDA=0.25')
     ap.add_argument('--check', action='store_true')
+    ap.add_argument('--threads', type=int, default=None, help='torch.set_num_threads (default: PyTorch default)')
     ap.add_argument('--quiet', action='store_true')
     args = ap.parse_args()
 
     apply_overrides(args.set)
     CLConfig.VERBOSE = not args.quiet
-    tasks, class_names, counts = create_tasks_temporal(args.data, split=args.split,
-                                                       max_per_day=args.max_per_day)
+    if args.threads:
+        torch.set_num_threads(args.threads)
+    from data.prepared import load_or_prepare
+    tasks, class_names, counts, pinfo = load_or_prepare(
+        args.dataset, args.data, split=args.split, max_per_day=args.max_per_day,
+        order=args.order, dedup=args.dedup)
     if args.check:
-        b = class_names.index('BENIGN')
+        b = benign_index(class_names)
         y = np.concatenate([t['test'].tensors[1].numpy() for t in tasks])
         m = final_metrics(y, np.full_like(y, b), class_names)
-        print(f"\nClassifieur constant « BENIGN » : acc={m['accuracy']:.4f} "
+        print(f"\nConstant 'BENIGN' classifier: acc={m['accuracy']:.4f} "
               f"F1w={m['f1_weighted']:.4f} MCC={m['mcc']:.4f}")
         absent = [c for c in class_names if c not in m['per_class']]
         print(f"Classes absentes du test agrégé : {absent or 'aucune'}")
@@ -163,12 +173,17 @@ def main():
 
     meta = {'config': CLConfig.as_dict(), 'split': args.split,
             'max_per_day': args.max_per_day, 'class_names': class_names}
+    # revision options are recorded only when used, so that files of the
+    # submitted version keep a comparable header
+    for k in ('dataset', 'order', 'dedup'):
+        if getattr(args, k) not in (None, 'file', 'cic2017'):
+            meta[k] = getattr(args, k)
     out = load(args.out)
     if out is None or out.get('meta') != meta:
         if out is not None:
-            print("⚠️ Configuration différente de celle du fichier existant : nouveau fichier.")
-        out = {'meta': meta, 'env': env_info(), 'counts': counts, 'runs': [],
-               'started': datetime.now().isoformat()}
+            print("WARNING Configuration différente de celle du fichier existant : nouveau fichier.")
+        out = {'meta': meta, 'env': env_info(), 'counts': counts, 'protocol_info': pinfo,
+               'runs': [], 'started': datetime.now().isoformat()}
     done = {(r['method'], r['seed']) for r in out['runs']}
 
     for seed in args.seeds:
@@ -182,7 +197,7 @@ def main():
             out['updated'] = datetime.now().isoformat()
             save(args.out, out)
             mm = r['metrics']
-            print(f"   → acc={mm['accuracy']:.4f} bacc={mm['balanced_accuracy']:.4f} "
+            print(f"   -> acc={mm['accuracy']:.4f} bacc={mm['balanced_accuracy']:.4f} "
                   f"F1m={mm['f1_macro']:.4f} MCC={mm['mcc']:.4f}")
     summarize(out)
     print(f"\nRésultats : {args.out}")

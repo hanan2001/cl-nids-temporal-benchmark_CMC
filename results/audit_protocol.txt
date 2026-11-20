@@ -1,0 +1,106 @@
+
+=== Capture files ===
+Monday-WorkingHours                           08:55:58-17:01:34  out-of-order(>1 min)=338161 (63.87%)  rank corr=0.4533  overlap prev=False
+Tuesday-WorkingHours                          08:53:00-17:00:00  out-of-order(>1 min)=366559 (82.25%)  rank corr=0.4397  overlap prev=False
+Wednesday-workingHours                        08:42:00-17:10:00  out-of-order(>1 min)=631145 (91.28%)  rank corr=0.6485  overlap prev=False
+Thursday-WorkingHours-Morning-WebAttacks      08:59:00-12:59:00  out-of-order(>1 min)=     0 (0.00%)  rank corr=1.0000  overlap prev=False
+Thursday-WorkingHours-Afternoon-Infilteration 13:00:00-17:04:00  out-of-order(>1 min)=     0 (0.00%)  rank corr=1.0000  overlap prev=False
+Friday-WorkingHours-Morning                   08:59:00-12:59:00  out-of-order(>1 min)=     0 (0.00%)  rank corr=1.0000  overlap prev=False
+Friday-WorkingHours-Afternoon-PortScan        13:00:00-15:29:00  out-of-order(>1 min)=     0 (0.00%)  rank corr=1.0000  overlap prev=False
+Friday-WorkingHours-Afternoon-DDos            15:30:00-17:02:00  out-of-order(>1 min)=     0 (0.00%)  rank corr=1.0000  overlap prev=False
+
+=== Main protocol (class-stratified split in file order): chronology ===
+Monday-WorkingHours                           train ['08:55:58', '16:37:42'] val ['08:56:38', '17:01:34'] test ['08:56:37', '17:01:34']  train flows after first test flow (any class): 317,675 (100.0%)
+      BENIGN                       train 08:55:58-16:37:42  test 08:56:37-17:01:34  train>first test: 317,675  same minute: 317,685
+Tuesday-WorkingHours                          train ['08:53:00', '16:49:00'] val ['08:54:00', '17:00:00'] test ['08:54:00', '17:00:00']  train flows after first test flow (any class): 267,333 (100.0%)
+      BENIGN                       train 08:53:00-16:49:00  test 08:54:00-17:00:00  train>first test: 259,034  same minute: 259,087
+      FTP-Patator                  train 09:43:00-10:30:00  test 09:17:00-09:31:00  train>first test: 4,761  same minute: 0
+      SSH-Patator                  train 14:33:00-15:11:00  test 14:09:00-14:21:00  train>first test: 3,538  same minute: 0
+Wednesday-workingHours                        train ['08:42:00', '16:48:00'] val ['08:42:00', '17:10:00'] test ['08:42:00', '17:09:00']  train flows after first test flow (any class): 414,777 (100.0%)
+      BENIGN                       train 08:42:00-16:48:00  test 08:42:00-17:09:00  train>first test: 263,743  same minute: 263,810
+      DoS GoldenEye                train 11:10:00-11:17:00  test 11:18:00-11:19:00  train>first test: 0  same minute: 0
+      DoS Hulk                     train 10:43:00-10:53:00  test 10:57:00-11:07:00  train>first test: 0  same minute: 0
+      DoS Slowhttptest             train 10:15:00-10:26:00  test 10:33:00-10:37:00  train>first test: 0  same minute: 0
+      DoS slowloris                train 09:01:00-14:25:00  test 10:06:00-10:11:00  train>first test: 5  same minute: 0
+      Heartbleed                   train 15:12:00-15:24:00  test 15:30:00-15:32:00  train>first test: 0  same minute: 0
+Thursday-WorkingHours-Morning-WebAttacks      train ['08:59:00', '10:53:00'] val ['09:44:00', '11:46:00'] test ['09:52:00', '12:59:00']  train flows after first test flow (any class): 48,705 (47.7%)
+      BENIGN                       train 08:59:00-10:53:00  test 11:46:00-12:59:00  train>first test: 0  same minute: 0
+      Web Attack - Brute Force     train 09:15:00-09:44:00  test 09:52:00-10:00:00  train>first test: 0  same minute: 0
+      Web Attack - Sql Injection   train 10:40:00-10:41:00  test 10:42:00-10:42:00  train>first test: 0  same minute: 0
+      Web Attack - XSS             train 10:15:00-10:27:00  test 10:31:00-10:35:00  train>first test: 0  same minute: 0
+Thursday-WorkingHours-Afternoon-Infilteration train ['13:00:00', '15:26:00'] val ['15:14:00', '15:51:00'] test ['15:31:00', '17:04:00']  train flows after first test flow (any class): 0 (0.0%)
+      BENIGN                       train 13:00:00-15:26:00  test 15:51:00-17:04:00  train>first test: 0  same minute: 0
+      Infiltration                 train 14:19:00-15:12:00  test 15:31:00-15:45:00  train>first test: 0  same minute: 0
+Friday-WorkingHours-Morning                   train ['08:59:00', '10:51:00'] val ['10:48:00', '11:30:00'] test ['11:26:00', '12:59:00']  train flows after first test flow (any class): 0 (0.0%)
+      BENIGN                       train 08:59:00-10:51:00  test 11:30:00-12:59:00  train>first test: 0  same minute: 0
+      Bot                          train 09:34:00-10:48:00  test 11:26:00-12:59:00  train>first test: 0  same minute: 0
+Friday-WorkingHours-Afternoon-PortScan        train ['13:00:00', '14:55:00'] val ['14:39:00', '15:07:00'] test ['14:55:00', '15:29:00']  train flows after first test flow (any class): 0 (0.0%)
+      BENIGN                       train 13:00:00-14:39:00  test 15:07:00-15:29:00  train>first test: 0  same minute: 0
+      PortScan                     train 13:05:00-14:55:00  test 14:55:00-15:23:00  train>first test: 0  same minute: 1,878
+Friday-WorkingHours-Afternoon-DDos            train ['15:30:00', '16:12:00'] val ['16:08:00', '16:29:00'] test ['16:12:00', '17:02:00']  train flows after first test flow (any class): 0 (0.0%)
+      BENIGN                       train 15:30:00-16:12:00  test 16:29:00-17:02:00  train>first test: 0  same minute: 0
+      DDoS                         train 15:56:00-16:08:00  test 16:12:00-16:16:00  train>first test: 0  same minute: 0
+
+=== File order vs timestamp order (class-stratified split) ===
+Monday-WorkingHours                           flows changing partition: 265,317 (50.11%)
+Tuesday-WorkingHours                          flows changing partition: 238,334 (53.48%)
+Wednesday-workingHours                        flows changing partition: 230,630 (33.36%)
+Thursday-WorkingHours-Morning-WebAttacks      flows changing partition: 0 (0.00%)
+Thursday-WorkingHours-Afternoon-Infilteration flows changing partition: 0 (0.00%)
+Friday-WorkingHours-Morning                   flows changing partition: 0 (0.00%)
+Friday-WorkingHours-Afternoon-PortScan        flows changing partition: 0 (0.00%)
+Friday-WorkingHours-Afternoon-DDos            flows changing partition: 0 (0.00%)
+
+=== Exact duplicates between evaluation and training partitions (main protocol) ===
+
+-- defined on raw features (before preprocessing)
+   Monday-WorkingHours                      BENIGN                       n=105,896  dup(same class)=  3,447 (  3.3%)  dup(any train)=  3,985 (  3.8%)  other label=0
+   Tuesday-WorkingHours                     BENIGN                       n= 86,363  dup(same class)=  1,951 (  2.3%)  dup(any train)=  6,212 (  7.2%)  other label=0
+   Tuesday-WorkingHours                     FTP-Patator                  n=  1,587  dup(same class)=    501 ( 31.6%)  dup(any train)=    501 ( 31.6%)  other label=0
+   Tuesday-WorkingHours                     SSH-Patator                  n=  1,179  dup(same class)=    535 ( 45.4%)  dup(any train)=    535 ( 45.4%)  other label=0
+   Wednesday-workingHours                   BENIGN                       n= 87,937  dup(same class)=  2,492 (  2.8%)  dup(any train)=  9,193 ( 10.5%)  other label=0
+   Wednesday-workingHours                   DoS GoldenEye                n=  2,059  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Wednesday-workingHours                   DoS Hulk                     n= 46,025  dup(same class)= 12,490 ( 27.1%)  dup(any train)= 12,504 ( 27.2%)  other label=854
+   Wednesday-workingHours                   DoS Slowhttptest             n=  1,100  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Wednesday-workingHours                   DoS slowloris                n=  1,159  dup(same class)=     79 (  6.8%)  dup(any train)=     79 (  6.8%)  other label=0
+   Wednesday-workingHours                   Heartbleed                   n=      2  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Thursday-WorkingHours-Morning-WebAttacks BENIGN                       n= 33,610  dup(same class)=  1,285 (  3.8%)  dup(any train)=  2,803 (  8.3%)  other label=1
+   Thursday-WorkingHours-Morning-WebAttacks Web Attack - Brute Force     n=    301  dup(same class)=     10 (  3.3%)  dup(any train)=     10 (  3.3%)  other label=0
+   Thursday-WorkingHours-Morning-WebAttacks Web Attack - Sql Injection   n=      4  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Thursday-WorkingHours-Morning-WebAttacks Web Attack - XSS             n=    130  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Thursday-WorkingHours-Afternoon-Infilteration BENIGN                       n= 57,672  dup(same class)=  2,527 (  4.4%)  dup(any train)=  4,541 (  7.9%)  other label=29
+   Thursday-WorkingHours-Afternoon-Infilteration Infiltration                 n=      7  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Friday-WorkingHours-Morning              BENIGN                       n= 37,791  dup(same class)=  1,661 (  4.4%)  dup(any train)=  3,453 (  9.1%)  other label=4
+   Friday-WorkingHours-Morning              Bot                          n=    391  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Friday-WorkingHours-Afternoon-PortScan   BENIGN                       n= 25,458  dup(same class)=    962 (  3.8%)  dup(any train)=  1,992 (  7.8%)  other label=0
+   Friday-WorkingHours-Afternoon-PortScan   PortScan                     n= 31,761  dup(same class)= 16,708 ( 52.6%)  dup(any train)= 16,816 ( 52.9%)  other label=288
+   Friday-WorkingHours-Afternoon-DDos       BENIGN                       n= 19,537  dup(same class)=    334 (  1.7%)  dup(any train)=  1,698 (  8.7%)  other label=2
+   Friday-WorkingHours-Afternoon-DDos       DDoS                         n= 25,605  dup(same class)=      4 (  0.0%)  dup(any train)=      5 (  0.0%)  other label=1
+   TOTAL test flows 565,574; with an identical training vector: 64,327 (11.4%)
+
+-- defined on preprocessed float32 vectors
+   Monday-WorkingHours                      BENIGN                       n=105,896  dup(same class)=  3,447 (  3.3%)  dup(any train)= 11,650 ( 11.0%)  other label=0
+   Tuesday-WorkingHours                     BENIGN                       n= 86,363  dup(same class)=  1,951 (  2.3%)  dup(any train)=  6,565 (  7.6%)  other label=0
+   Tuesday-WorkingHours                     FTP-Patator                  n=  1,587  dup(same class)=    501 ( 31.6%)  dup(any train)=    501 ( 31.6%)  other label=0
+   Tuesday-WorkingHours                     SSH-Patator                  n=  1,179  dup(same class)=    535 ( 45.4%)  dup(any train)=    535 ( 45.4%)  other label=0
+   Wednesday-workingHours                   BENIGN                       n= 87,937  dup(same class)=  2,492 (  2.8%)  dup(any train)=  9,627 ( 10.9%)  other label=0
+   Wednesday-workingHours                   DoS GoldenEye                n=  2,059  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Wednesday-workingHours                   DoS Hulk                     n= 46,025  dup(same class)= 12,490 ( 27.1%)  dup(any train)= 12,508 ( 27.2%)  other label=875
+   Wednesday-workingHours                   DoS Slowhttptest             n=  1,100  dup(same class)=      0 (  0.0%)  dup(any train)=      1 (  0.1%)  other label=1
+   Wednesday-workingHours                   DoS slowloris                n=  1,159  dup(same class)=     81 (  7.0%)  dup(any train)=     81 (  7.0%)  other label=0
+   Wednesday-workingHours                   Heartbleed                   n=      2  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Thursday-WorkingHours-Morning-WebAttacks BENIGN                       n= 33,610  dup(same class)=  1,285 (  3.8%)  dup(any train)=  2,929 (  8.7%)  other label=1
+   Thursday-WorkingHours-Morning-WebAttacks Web Attack - Brute Force     n=    301  dup(same class)=     10 (  3.3%)  dup(any train)=     10 (  3.3%)  other label=0
+   Thursday-WorkingHours-Morning-WebAttacks Web Attack - Sql Injection   n=      4  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Thursday-WorkingHours-Morning-WebAttacks Web Attack - XSS             n=    130  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Thursday-WorkingHours-Afternoon-Infilteration BENIGN                       n= 57,672  dup(same class)=  2,527 (  4.4%)  dup(any train)=  4,799 (  8.3%)  other label=29
+   Thursday-WorkingHours-Afternoon-Infilteration Infiltration                 n=      7  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Friday-WorkingHours-Morning              BENIGN                       n= 37,791  dup(same class)=  1,661 (  4.4%)  dup(any train)=  3,641 (  9.6%)  other label=4
+   Friday-WorkingHours-Morning              Bot                          n=    391  dup(same class)=      0 (  0.0%)  dup(any train)=      0 (  0.0%)  other label=0
+   Friday-WorkingHours-Afternoon-PortScan   BENIGN                       n= 25,458  dup(same class)=    962 (  3.8%)  dup(any train)=  2,115 (  8.3%)  other label=0
+   Friday-WorkingHours-Afternoon-PortScan   PortScan                     n= 31,761  dup(same class)= 16,708 ( 52.6%)  dup(any train)= 16,816 ( 52.9%)  other label=288
+   Friday-WorkingHours-Afternoon-DDos       BENIGN                       n= 19,537  dup(same class)=    334 (  1.7%)  dup(any train)=  1,786 (  9.1%)  other label=2
+   Friday-WorkingHours-Afternoon-DDos       DDoS                         n= 25,605  dup(same class)=      5 (  0.0%)  dup(any train)=      6 (  0.0%)  other label=1
+   TOTAL test flows 565,574; with an identical training vector: 73,570 (13.0%)
+
+written: results/audit_protocol.json
