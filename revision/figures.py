@@ -36,33 +36,33 @@ def runs_of(exp):
 
 
 def fig1():
-    fig = plt.figure(figsize=(6.4, 4.86))
-    ax = fig.add_axes([0, 0.47, 1, 0.53]); ax.set_xlim(0, 100); ax.set_ylim(0, 50); ax.axis('off')
+    fig = plt.figure(figsize=(6.4, 4.26))
+    ax = fig.add_axes([0, 0.502, 1, 0.498]); ax.set_xlim(0, 100); ax.set_ylim(0, 41); ax.axis('off')
     tasks = [('T1', 'Mon', 'BENIGN\nonly'), ('T2', 'Tue', 'FTP-,\nSSH-Patator'), ('T3', 'Wed', '4 DoS,\nHeartbleed'),
              ('T4', 'Thu AM', 'Web: BF,\nXSS, SQLi'), ('T5', 'Thu PM', 'Infiltration'), ('T6', 'Fri AM', 'Bot'),
              ('T7', 'Fri PM', 'PortScan'), ('T8', 'Fri PM', 'DDoS')]
-    ax.text(0.5, 49, '(a)', fontsize=9, weight='bold', va='top')
+    ax.text(0.5, 40.8, '(a)', fontsize=9, weight='bold', va='top')
     w, g = 11.2, 1.3
     for i, (t, d, c) in enumerate(tasks):
         x = 1 + i * (w + g)
-        ax.add_patch(FancyBboxPatch((x, 19), w, 23, boxstyle='round,pad=0,rounding_size=1.2', fc='#F2F2F2', ec='k', lw=0.8))
-        ax.text(x + w / 2, 39.5, t, ha='center', va='center', weight='bold', fontsize=9)
-        ax.text(x + w / 2, 35.5, d, ha='center', va='center', fontsize=8.5)
-        ax.text(x + w / 2, 28, c, ha='center', va='center', fontsize=8.5)
+        ax.add_patch(FancyBboxPatch((x, 15.5), w, 20, boxstyle='round,pad=0,rounding_size=1.2', fc='#F2F2F2', ec='k', lw=0.8))
+        ax.text(x + w / 2, 33.3, t, ha='center', va='center', weight='bold', fontsize=9)
+        ax.text(x + w / 2, 29.6, d, ha='center', va='center', fontsize=8.5)
+        ax.text(x + w / 2, 23.2, c, ha='center', va='center', fontsize=8.5)
         for (a, b, col) in ((0, 0.6, '#0072B2'), (0.6, 0.8, '#E69F00'), (0.8, 1.0, '#009E73')):
-            ax.add_patch(Rectangle((x + 0.8 + a * (w - 1.6), 20.3), (b - a) * (w - 1.6), 2.2, fc=col, ec='none'))
+            ax.add_patch(Rectangle((x + 0.8 + a * (w - 1.6), 16.6), (b - a) * (w - 1.6), 2.2, fc=col, ec='none'))
         if i < 7:
-            ax.annotate('', xy=(x + w + g, 30.5), xytext=(x + w, 30.5), arrowprops=dict(arrowstyle='-|>', lw=0.8))
-    ax.annotate('', xy=(99, 15.5), xytext=(1, 15.5), arrowprops=dict(arrowstyle='-|>', lw=1))
-    ax.text(50, 12.5, 'Capture time (one task per CIC-IDS2017 file; BENIGN present in every task)', ha='center', fontsize=8.5)
+            ax.annotate('', xy=(x + w + g, 25.5), xytext=(x + w, 25.5), arrowprops=dict(arrowstyle='-|>', lw=0.8))
+    ax.annotate('', xy=(99, 13.2), xytext=(1, 13.2), arrowprops=dict(arrowstyle='-|>', lw=1))
+    ax.text(50, 10.3, 'Capture time (one task per CIC-IDS2017 file; BENIGN present in every task)', ha='center', fontsize=8.5)
     for k, (lab, col) in enumerate((('Train 60%', '#0072B2'), ('Validation 20%', '#E69F00'), ('Test 20%', '#009E73'))):
-        ax.add_patch(Rectangle((1 + k * 17, 6.3), 2.4, 2.2, fc=col)); ax.text(4.3 + k * 17, 7.4, lab, va='center', fontsize=8.5)
-    ax.text(52, 7.4, 'Rows sorted by flow timestamp; chronological split\nwithin each class and day', va='center', fontsize=8)
-    ax.text(1, 1.5, 'Scaling: signed log + StandardScaler fitted on T1 train only; evaluation after T8 on all test partitions',
+        ax.add_patch(Rectangle((1 + k * 17, 4.9), 2.4, 2.2, fc=col)); ax.text(4.3 + k * 17, 6.0, lab, va='center', fontsize=8.5)
+    ax.text(52, 6.0, 'Rows sorted by flow timestamp; chronological split\nwithin each class and day', va='center', fontsize=8)
+    ax.text(1, 0.4, 'Scaling: signed log + StandardScaler fitted on T1 train only; evaluation after T8 on all test partitions',
             fontsize=8)
-    bx = fig.add_axes([0, 0, 1, 0.46]); bx.set_xlim(0, 100); bx.set_ylim(0, 44); bx.axis('off')
-    bx.text(0.5, 43, '(b)', fontsize=9, weight='bold', va='top')
-    bx.text(99, 40.5, 'Shared by all methods; replay batch, severity weights and EWC penalty are method-specific',
+    bx = fig.add_axes([0, 0, 1, 0.49]); bx.set_xlim(0, 100); bx.set_ylim(0, 41); bx.axis('off')
+    bx.text(0.5, 40.8, '(b)', fontsize=9, weight='bold', va='top')
+    bx.text(99, 38.4, 'Shared by all methods; replay batch, severity weights and EWC penalty are method-specific',
             ha='right', style='italic', fontsize=8)
     def box(x, y, w, h, txt, fc='white'):
         bx.add_patch(FancyBboxPatch((x, y), w, h, boxstyle='round,pad=0,rounding_size=0.8', fc=fc, ec='k', lw=0.8))
@@ -145,7 +145,7 @@ def fig3(main, counts_support, fn='fig3.png', methods=('ReplayUniform', 'ReplayR
 
 
 def fig4(main, fn='fig4.png', methods=('FineTuning', 'EWC', 'ReplayUniform', 'ReplayRisk')):
-    fig, axs = plt.subplots(2, 2, figsize=(5.0, 4.2), gridspec_kw={'hspace': 0.3, 'wspace': 0.12})
+    fig, axs = plt.subplots(2, 2, figsize=(5.0, 3.95), gridspec_kw={'hspace': 0.26, 'wspace': 0.1})
     for ax, m, tag in zip(axs.flat, methods, 'abcd'):
         Rs = [r['R_macro_recall'] for r in main if r['method'] == m and r.get('R_macro_recall')]
         ax.set_title(f'({tag}) {LAB[m]}', loc='left', weight='bold')
