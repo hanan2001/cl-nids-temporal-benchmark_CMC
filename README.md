@@ -143,9 +143,9 @@ Pipeline:
 
 ```bash
 python revision/audit_protocol.py file     # timestamp and duplicate audit, submitted order
-python revision/audit_protocol.py time     # same, revised order (Tables A2, A3)
+python revision/audit_protocol.py time     # same, revised order (Supplementary Tables S2, S3)
 python revision/jobs.py --workers 5 --threads 2   # all revision runs -> results/rev/<experiment>/
-python revision/other_classifiers.py       # random forest / gradient boosting diagnostic (Table A5)
+python revision/other_classifiers.py       # random forest / gradient boosting diagnostic (Supplementary Table S6)
 python revision/analyze.py                 # -> results/rev/summary.json
 python revision/figures.py                 # -> results/rev/figures/
 ```
